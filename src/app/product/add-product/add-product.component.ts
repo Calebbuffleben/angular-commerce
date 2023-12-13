@@ -10,7 +10,12 @@ import { Product } from '../../product.model';
   styleUrl: './add-product.component.css'
 })
 export class AddProductComponent {
-  newProduct: Product = {id: 0, name: '', price: '0' }
+  newProduct: Product = { id: 0, name: '', price: '0' }
 
   constructor(private productService: ProductService) {}
+
+  addProduct(): void {
+    this.productService.addProduct(this.newProduct);
+    this.newProduct = { id: 0, name: '', price: '0' }
+  }
 }
